@@ -193,6 +193,7 @@ def bash(request) -> pexpect.spawn:
     bash = pexpect.spawn(
         "%s --norc" % os.environ.get("BASHCOMP_TEST_BASH", "bash"),
         maxread=os.environ.get("BASHCOMP_TEST_PEXPECT_MAXREAD", 20000),
+        timeout=float(os.environ.get("BASHCOMP_TEST_PEXPECT_TIMEOUT", 30)),
         logfile=logfile,
         cwd=fixturesdir,
         env=env,
